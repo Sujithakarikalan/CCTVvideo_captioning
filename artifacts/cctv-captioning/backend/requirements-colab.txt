@@ -1,0 +1,13 @@
+# Keep Colab's CUDA-enabled torch/torchvision installation. Do not install
+# project/requirements.txt here because it leaves PyTorch wheel selection to
+# the machine's CUDA/driver combination.
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.34,<1.0
+python-multipart>=0.0.20,<1.0
+httpx>=0.27,<1.0
+transformers>=4.57.0,<5.0
+accelerate>=1.2,<2.0
+qwen-vl-utils>=0.0.14,<0.1
+opencv-python>=4.9,<5.0
+numpy>=1.26,<3.0
+Pillow>=10.0,<13.0

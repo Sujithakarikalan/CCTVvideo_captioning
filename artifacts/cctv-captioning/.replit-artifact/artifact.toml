@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "CCTV Video Captioning"
+description = "Upload CCTV footage and generate factual video captions using the project's existing Qwen3-VL backend, with processing details and optional supporting YOLO evidence."
+version = "1.0.0"
+id = "artifacts/cctv-captioning"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24538
+
+[services.development]
+run = "pnpm --filter @workspace/cctv-captioning run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/cctv-captioning", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/cctv-captioning/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24538"
+BASE_PATH = "/"

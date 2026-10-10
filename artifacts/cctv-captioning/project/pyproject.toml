@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cctv-video-captioning"
+version = "0.1.0"
+description = "A modular training pipeline for CCTV video captioning research."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+caption = [
+    "transformers>=4.57.0,<5.0",
+    "accelerate>=1.2,<2.0",
+    "qwen-vl-utils>=0.0.14,<0.1",
+]
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
